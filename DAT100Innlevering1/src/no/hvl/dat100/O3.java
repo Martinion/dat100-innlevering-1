@@ -4,10 +4,8 @@ import static java.lang.Integer.*;
 
 public class O3 
 {
-	public static int fakultet()
+	public static int fakultet(int n)
 	{
-		int n = parseInt(showInputDialog("Skriv inn eit tall"));
-		
 		int temp = 1;
 		
 		for(int i = n; i > 0; i--)
