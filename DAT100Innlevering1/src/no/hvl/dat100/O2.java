@@ -4,9 +4,11 @@ import static java.lang.Integer.*;
 
 public class O2 {
 	
+	private static final int ELEVER = 10;
+
 	public static void run()
 	{
-		char karakter[] = new char[10];
+		char karakter[] = new char[ELEVER];
 		
 		for(int i = 0; i < 10; i++)
 		{
@@ -15,7 +17,7 @@ public class O2 {
 				karakter[i] = settKarakter(parseInt(showInputDialog("Skriv inn poeng på nytt for student " + (i+1))));
 		}
 		
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < ELEVER; i++)
 		{
 			System.out.println("Student " + (i+1) + " sin karakter er " + karakter[i]);
 		}

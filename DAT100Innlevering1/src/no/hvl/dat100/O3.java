@@ -1,16 +1,15 @@
 package no.hvl.dat100;
-import static javax.swing.JOptionPane.*;
-import static java.lang.Integer.*;
+import java.math.BigInteger;
 
 public class O3 
 {
-	public static int fakultet(int n)
+	public static BigInteger fakultet(int n)
 	{
-		int temp = 1;
+		BigInteger temp = new BigInteger("1");
 		
 		for(int i = n; i > 0; i--)
 		{
-			temp *= i;
+			temp = temp.multiply(new BigInteger(String.valueOf(i)));
 		}
 		return temp;
 	}

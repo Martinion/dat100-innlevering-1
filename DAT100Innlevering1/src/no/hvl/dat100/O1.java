@@ -1,46 +1,48 @@
 package no.hvl.dat100;
 
 public class O1 {
-	public static int trinnSkatt(int lønn)
+	private static final int TRINN0 = 208050000;
+	private static final int TRINN1 = 292850000;
+	private static final int TRINN2 = 670000000;
+	private static final int TRINN3 = 937900000;
+	private static final int TRINN4 = 1350000000;
+	private static final float TRINN1RENTE = 0.017f;
+	private static final float TRINN2RENTE = 0.040f;
+	private static final float TRINN3RENTE = 0.136f;
+	private static final float TRINN4RENTE = 0.166f;
+	private static final float TRINN5RENTE = 0.176f;
+
+	
+	public static float trinnSkatt(long lønn)
 	{
-		lønn *= 100;
-		int trinn0 = 20805000;
-		int trinn1 = 29285000;
-		int trinn2 = 67000000;
-		int trinn3 = 93790000;
-		int trinn4 = 135000000;
-		float trinn1rente = 0.017f;
-		float trinn2rente = 0.040f;
-		float trinn3rente = 0.136f;
-		float trinn4rente = 0.166f;
-		float trinn5rente = 0.176f;
 		int skatt = 0;
+		lønn *= 1000;
 		
-		if(lønn > trinn4)
+		if(lønn > TRINN4)
 		{
-			skatt += (lønn-trinn4) * trinn5rente;
-			lønn = trinn4;
+			skatt += (lønn-TRINN4) * TRINN5RENTE;
+			lønn = TRINN4;
 		}
-		if(lønn > trinn3)
+		if(lønn > TRINN3)
 		{
-			skatt += (lønn-trinn3) * trinn4rente;
-			lønn = trinn3;
+			skatt += (lønn-TRINN3) * TRINN4RENTE;
+			lønn = TRINN3;
 		}
-		if(lønn > trinn2)
+		if(lønn > TRINN2)
 		{
-			skatt += (lønn-trinn2) * trinn3rente;
-			lønn = trinn2;
+			skatt += (lønn-TRINN2) * TRINN3RENTE;
+			lønn = TRINN2;
 		}
-		if(lønn > trinn1)
+		if(lønn > TRINN1)
 		{
-			skatt += (lønn-trinn1) * trinn2rente;
-			lønn = trinn1;
+			skatt += (lønn-TRINN1) * TRINN2RENTE;
+			lønn = TRINN1;
 		}
-		if(lønn > trinn0)
+		if(lønn > TRINN0)
 		{
-			skatt += (lønn-trinn0) * trinn1rente;
+			skatt += (lønn-TRINN0) * TRINN1RENTE;
 		}
 		
-		return (skatt+50)/100;
+		return skatt/1000.0f;
 	}
 }
